@@ -237,6 +237,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gvImg);
             this.Controls.Add(this.tools);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Android资源批量生成器";
