@@ -16,75 +16,117 @@ namespace XDPI
     public partial class Form1 : Form
     {
         private string savepath = "";
-        private string filefullname = "";
-        private string filename = "";
         private string prepath = "";
-        private string ext = "";
+        private string[] paths = { "-xxxhdpi", "-xxhdpi", "-xhdpi", "-hdpi", "-mdpi", "-ldpi" };
+        private double[] rates = { 4, 3, 2, 1.5, 1, 0.75 };
         public Form1()
         {
             InitializeComponent();
-
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = 100;
             progressBar1.Hide();
+            savepath = AppDomain.CurrentDomain.BaseDirectory + "temp";
+            tbpath.Text = savepath;
+            filedlg.Multiselect = true;
+            filedlg.Filter = "png|*.png|jpg|*.jpg|bmp|*.bmp";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        //添加图片
+        private void btnadd_Click(object sender, EventArgs e)
         {
-            DialogResult dr = openFileDialog1.ShowDialog();
-            if (dr == DialogResult.OK)
+            if (filedlg.ShowDialog() == DialogResult.OK)
             {
-                filefullname = openFileDialog1.FileName;
-                ext = Path.GetExtension(filefullname);
-                filename = Path.GetFileNameWithoutExtension(filefullname);
-                textBox1.Text = filefullname;
-                tbfname.Text = filename;
-                Image img = Image.FromFile(filefullname);
-                pictureBox1.Image = img;
-                label2.Text = "宽度:" + img.Width + "高度:" + img.Height;
-                label3.Text = "水平分辨率：" + img.HorizontalResolution + "垂直分辨率" + img.VerticalResolution;
+                for (int i = 0; i < filedlg.FileNames.Length; i++)
+                {
+                    DataGridViewRow row = new DataGridViewRow();
+                    //图片
+                    Image img = Image.FromFile(filedlg.FileNames[i]);
+                    DataGridViewImageCell imgc = new DataGridViewImageCell();
+                    imgc.Value = img;
+                    imgc.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                    imgc.ToolTipText = "双击查看大图";
+                    row.Cells.Add(imgc);
+                    //路径
+                    DataGridViewTextBoxCell path = new DataGridViewTextBoxCell();
+                    path.Value = filedlg.FileNames[i];
+                    row.Cells.Add(path);
+                    //文件名
+                    DataGridViewTextBoxCell name = new DataGridViewTextBoxCell();
+                    name.Value = Path.GetFileNameWithoutExtension(filedlg.FileNames[i]);
+                    row.Cells.Add(name);
+                    //像素
+                    DataGridViewTextBoxCell px = new DataGridViewTextBoxCell();
+                    px.Value = img.Width + "X" + img.Height;
+                    row.Cells.Add(px);
+                    //分辨率
+                    DataGridViewTextBoxCell deep = new DataGridViewTextBoxCell();
+                    deep.Value = img.HorizontalResolution + "X" + img.VerticalResolution;
+                    row.Cells.Add(deep);
+                    gvImg.Rows.Add(row);
+                }
             }
         }
-        private string[] paths = { "-xxxhdpi", "-xxhdpi", "-xhdpi", "-hdpi", "-mdpi", "-ldpi" };
-        private double[] rates = { 4, 3, 2, 1.5, 1, 0.75 };
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
-            {
-                progressBar1.Value = 0;
-                progressBar1.Show();
-                //保存路径
-                savepath = folderBrowserDialog1.SelectedPath;
-                filename = tbfname.Text + ext;
-                prepath = tbpname.Text;
 
+        //选择存放路径
+        private void btnpath_Click(object sender, EventArgs e)
+        {
+            if (folderdlg.ShowDialog() == DialogResult.OK)
+            {
+                savepath = folderdlg.SelectedPath;
+                tbpath.Text = savepath;
+            }
+        }
+        //转换
+        private void btntran_Click(object sender, EventArgs e)
+        {
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = paths.Length * (gvImg.Rows.Count - 1);
+            progressBar1.Value = 0;
+            progressBar1.Show();
+            //保存路径
+            prepath = tbpname.Text;
+            for (int r = 0; r < gvImg.Rows.Count - 1; r++)
+            {
+                StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < paths.Length; i++)
                 {
-                    Thread.Sleep(1000);
-                    progressBar1.Value = i / paths.Length * 100;
-                    Bitmap oldbmp = new Bitmap(filefullname);
+                    progressBar1.Value = r * paths.Length + i + 1;
+                    Bitmap oldbmp = new Bitmap(gvImg.Rows[r].Cells[1].Value.ToString());
                     string temp = savepath + "\\" + prepath + paths[i];
                     if (!Directory.Exists(temp))
                     {
                         Directory.CreateDirectory(temp);
                     }
-                    string fp = temp + "\\" + filename;
+                    string fp = temp + "\\" + gvImg.Rows[r].Cells[2].Value.ToString() + Path.GetExtension(gvImg.Rows[r].Cells[1].Value.ToString());
                     if (!File.Exists(fp))
                     {
-                        Bitmap bmp = GetThumbnail(oldbmp, rates[i] / rates[0]);
-                        bmp.Save(fp);
-                        bmp.Dispose();
+                        if (i == 0)
+                        {
+                            File.Copy(gvImg.Rows[r].Cells[1].Value.ToString(), fp);
+                        }
+                        else
+                        {
+                            Bitmap bmp = GetThumbnail(oldbmp, rates[i] / rates[0]);
+                            bmp.Save(fp);
+                            bmp.Dispose();
+                        }
                     }
+                    else
+                    {
+                        sb.Append(prepath + paths[i] + ",");
+                    }
+                    oldbmp.Dispose();
+                }
+                if (sb.ToString().Length > 0)
+                {
+                    gvImg.Rows[r].Cells[5].Value = "已存在导致的失败：" + sb.ToString().TrimEnd(',');
+                }
+                else
+                {
+                    gvImg.Rows[r].Cells[5].Value = "成功";
                 }
             }
             progressBar1.Hide();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
 
         }
-
 
         public static Bitmap GetThumbnail(Image img, double rate)
         {
@@ -110,6 +152,21 @@ namespace XDPI
             encoderParams.Param[0] = encoderParam;
             img.Dispose();
             return outBmp;
+        }
+        //双击查看图片
+        private void gvImg_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //点击的是第一个单元格
+            if (e.ColumnIndex == 0 && e.RowIndex != gvImg.Rows.Count - 1)
+            {
+                pictureBox1.ImageLocation = gvImg.Rows[e.RowIndex].Cells[1].Value.ToString();
+                pictureBox1.Show();
+            }
+        }
+
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            pictureBox1.Hide();
         }
     }
 }

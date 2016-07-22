@@ -28,185 +28,249 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.filedlg = new System.Windows.Forms.OpenFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.tbfname = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbpname = new System.Windows.Forms.TextBox();
+            this.folderdlg = new System.Windows.Forms.FolderBrowserDialog();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.gvImg = new System.Windows.Forms.DataGridView();
+            this.tools = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.tbpath = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.tbpname = new System.Windows.Forms.ToolStripTextBox();
+            this.btnpath = new System.Windows.Forms.ToolStripButton();
+            this.btnadd = new System.Windows.Forms.ToolStripButton();
+            this.btntran = new System.Windows.Forms.ToolStripButton();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.img = new System.Windows.Forms.DataGridViewImageColumn();
+            this.fpath = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.px = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.result = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvImg)).BeginInit();
+            this.tools.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "选择文件";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(94, 10);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(248, 21);
-            this.textBox1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(368, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "浏览";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // pictureBox1
             // 
+            this.pictureBox1.AccessibleDescription = "";
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(37, 46);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 25);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(253, 191);
+            this.pictureBox1.Size = new System.Drawing.Size(799, 490);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(347, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "label2";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(349, 127);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "label3";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(37, 271);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(278, 126);
-            this.richTextBox1.TabIndex = 6;
-            this.richTextBox1.Text = "ldpi 120dpi 0.75\nmdpi 160dpi 1\nhdpi 240dpi 1.5\nxhdpi 320dpi 2\nxxhdpi 480dpi 3\nxxx" +
-    "hdpi 640dpi 4";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(421, 354);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // tbfname
-            // 
-            this.tbfname.Location = new System.Drawing.Point(420, 271);
-            this.tbfname.Name = "tbfname";
-            this.tbfname.Size = new System.Drawing.Size(116, 21);
-            this.tbfname.TabIndex = 8;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(366, 274);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "文件名";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(338, 317);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 12);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "资源目录前缀";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // tbpname
-            // 
-            this.tbpname.Location = new System.Drawing.Point(421, 308);
-            this.tbpname.Name = "tbpname";
-            this.tbpname.Size = new System.Drawing.Size(116, 21);
-            this.tbpname.TabIndex = 10;
-            this.tbpname.Text = "mipmap";
+            this.toolTip1.SetToolTip(this.pictureBox1, "双击退出图片查看");
+            this.pictureBox1.Visible = false;
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(94, 182);
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar1.Location = new System.Drawing.Point(224, 217);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(335, 23);
+            this.progressBar1.Size = new System.Drawing.Size(357, 23);
+            this.progressBar1.Step = 1;
             this.progressBar1.TabIndex = 12;
+            // 
+            // gvImg
+            // 
+            this.gvImg.AllowUserToOrderColumns = true;
+            this.gvImg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvImg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.img,
+            this.fpath,
+            this.fname,
+            this.px,
+            this.deep,
+            this.result});
+            this.gvImg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gvImg.Location = new System.Drawing.Point(0, 25);
+            this.gvImg.Name = "gvImg";
+            this.gvImg.RowTemplate.Height = 23;
+            this.gvImg.Size = new System.Drawing.Size(799, 490);
+            this.gvImg.TabIndex = 14;
+            this.gvImg.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvImg_CellDoubleClick);
+            // 
+            // tools
+            // 
+            this.tools.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel2,
+            this.tbpname,
+            this.toolStripLabel1,
+            this.tbpath,
+            this.btnpath,
+            this.btnadd,
+            this.btntran,
+            this.toolStripComboBox1});
+            this.tools.Location = new System.Drawing.Point(0, 0);
+            this.tools.Name = "tools";
+            this.tools.Size = new System.Drawing.Size(799, 25);
+            this.tools.TabIndex = 15;
+            this.tools.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(56, 22);
+            this.toolStripLabel1.Text = "保存位置";
+            // 
+            // tbpath
+            // 
+            this.tbpath.Name = "tbpath";
+            this.tbpath.Size = new System.Drawing.Size(200, 25);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(56, 22);
+            this.toolStripLabel2.Text = "资源前缀";
+            // 
+            // tbpname
+            // 
+            this.tbpname.Name = "tbpname";
+            this.tbpname.Size = new System.Drawing.Size(100, 25);
+            this.tbpname.Text = "mipmap";
+            // 
+            // btnpath
+            // 
+            this.btnpath.CheckOnClick = true;
+            this.btnpath.Image = ((System.Drawing.Image)(resources.GetObject("btnpath.Image")));
+            this.btnpath.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnpath.Name = "btnpath";
+            this.btnpath.Size = new System.Drawing.Size(76, 22);
+            this.btnpath.Text = "选择目录";
+            this.btnpath.Click += new System.EventHandler(this.btnpath_Click);
+            // 
+            // btnadd
+            // 
+            this.btnadd.Image = ((System.Drawing.Image)(resources.GetObject("btnadd.Image")));
+            this.btnadd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnadd.Name = "btnadd";
+            this.btnadd.Size = new System.Drawing.Size(76, 22);
+            this.btnadd.Text = "添加图片";
+            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
+            // 
+            // btntran
+            // 
+            this.btntran.Image = ((System.Drawing.Image)(resources.GetObject("btntran.Image")));
+            this.btntran.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btntran.Name = "btntran";
+            this.btntran.Size = new System.Drawing.Size(76, 22);
+            this.btntran.Text = "开始转换";
+            this.btntran.Click += new System.EventHandler(this.btntran_Click);
+            // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.Items.AddRange(new object[] {
+            "ldpi 120dpi 0.75",
+            "mdpi 160dpi 1",
+            "hdpi 240dpi 1.5",
+            "xhdpi 320dpi 2",
+            "xxhdpi 480dpi 3",
+            "xxxhdpi 640dpi 4"});
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
+            // 
+            // img
+            // 
+            this.img.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.img.FillWeight = 10F;
+            this.img.HeaderText = "图片";
+            this.img.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.img.Name = "img";
+            this.img.ToolTipText = "双击查看大图";
+            // 
+            // fpath
+            // 
+            this.fpath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fpath.FillWeight = 30F;
+            this.fpath.HeaderText = "路径";
+            this.fpath.Name = "fpath";
+            // 
+            // fname
+            // 
+            this.fname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fname.FillWeight = 10F;
+            this.fname.HeaderText = "文件名";
+            this.fname.Name = "fname";
+            // 
+            // px
+            // 
+            this.px.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.px.FillWeight = 10F;
+            this.px.HeaderText = "像素:宽X高";
+            this.px.Name = "px";
+            // 
+            // deep
+            // 
+            this.deep.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.deep.FillWeight = 10F;
+            this.deep.HeaderText = "分辨率:水平X垂直";
+            this.deep.Name = "deep";
+            // 
+            // result
+            // 
+            this.result.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.result.FillWeight = 30F;
+            this.result.HeaderText = "结果";
+            this.result.Name = "result";
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.ToolTipTitle = "双击退出图片查看";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(561, 409);
+            this.ClientSize = new System.Drawing.Size(799, 515);
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.tbpname);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.tbfname);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.gvImg);
+            this.Controls.Add(this.tools);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Android资源批量生成器";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvImg)).EndInit();
+            this.tools.ResumeLayout(false);
+            this.tools.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.OpenFileDialog filedlg;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.TextBox tbfname;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbpname;
+        private System.Windows.Forms.FolderBrowserDialog folderdlg;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.DataGridView gvImg;
+        private System.Windows.Forms.ToolStrip tools;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripTextBox tbpath;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripTextBox tbpname;
+        private System.Windows.Forms.ToolStripButton btnpath;
+        private System.Windows.Forms.ToolStripButton btnadd;
+        private System.Windows.Forms.ToolStripButton btntran;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.DataGridViewImageColumn img;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fpath;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn px;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn result;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
