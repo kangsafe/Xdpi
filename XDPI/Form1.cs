@@ -168,5 +168,84 @@ namespace XDPI
         {
             pictureBox1.Hide();
         }
+
+        private void Form1_DragEnter(object sender, DragEventArgs e)
+        {
+            //获取拖入的数据
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))//判断拖进来是不是文件类型的
+            {
+                //取出文件数组(保存在files数组中)
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+                for (int i = 0; i < files.Length; i++)
+                {
+                    DataGridViewRow row = new DataGridViewRow();
+                    //图片
+                    Image img = Image.FromFile(files[i]);
+                    DataGridViewImageCell imgc = new DataGridViewImageCell();
+                    imgc.Value = img;
+                    imgc.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                    imgc.ToolTipText = "双击查看大图";
+                    row.Cells.Add(imgc);
+                    //路径
+                    DataGridViewTextBoxCell path = new DataGridViewTextBoxCell();
+                    path.Value = files[i];
+                    row.Cells.Add(path);
+                    //文件名
+                    DataGridViewTextBoxCell name = new DataGridViewTextBoxCell();
+                    name.Value = Path.GetFileNameWithoutExtension(files[i]);
+                    row.Cells.Add(name);
+                    //像素
+                    DataGridViewTextBoxCell px = new DataGridViewTextBoxCell();
+                    px.Value = img.Width + "X" + img.Height;
+                    row.Cells.Add(px);
+                    //分辨率
+                    DataGridViewTextBoxCell deep = new DataGridViewTextBoxCell();
+                    deep.Value = img.HorizontalResolution + "X" + img.VerticalResolution;
+                    row.Cells.Add(deep);
+                    gvImg.Rows.Add(row);
+                }                                                          //如果有多个文件,files[0]就是第一个文件的路径了
+                //richTextBox1.Text = System.IO.File.ReadAllText(files[0]);//IO操作读入文本内容
+            }
+            //Cursor = Cursors.NoMove2D;
+        }
+
+        private void Form1_DragDrop(object sender, DragEventArgs e)
+        {
+            ////获取拖入的数据
+            //if (e.Data.GetDataPresent(DataFormats.FileDrop))//判断拖进来是不是文件类型的
+            //{
+            //    //取出文件数组(保存在files数组中)
+            //    string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            //    for (int i = 0; i < files.Length; i++)
+            //    {
+            //        DataGridViewRow row = new DataGridViewRow();
+            //        //图片
+            //        Image img = Image.FromFile(files[i]);
+            //        DataGridViewImageCell imgc = new DataGridViewImageCell();
+            //        imgc.Value = img;
+            //        imgc.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            //        imgc.ToolTipText = "双击查看大图";
+            //        row.Cells.Add(imgc);
+            //        //路径
+            //        DataGridViewTextBoxCell path = new DataGridViewTextBoxCell();
+            //        path.Value = files[i];
+            //        row.Cells.Add(path);
+            //        //文件名
+            //        DataGridViewTextBoxCell name = new DataGridViewTextBoxCell();
+            //        name.Value = Path.GetFileNameWithoutExtension(files[i]);
+            //        row.Cells.Add(name);
+            //        //像素
+            //        DataGridViewTextBoxCell px = new DataGridViewTextBoxCell();
+            //        px.Value = img.Width + "X" + img.Height;
+            //        row.Cells.Add(px);
+            //        //分辨率
+            //        DataGridViewTextBoxCell deep = new DataGridViewTextBoxCell();
+            //        deep.Value = img.HorizontalResolution + "X" + img.VerticalResolution;
+            //        row.Cells.Add(deep);
+            //        gvImg.Rows.Add(row);
+            //    }                                                          //如果有多个文件,files[0]就是第一个文件的路径了
+            //    //richTextBox1.Text = System.IO.File.ReadAllText(files[0]);//IO操作读入文本内容
+            //}
+        }
     }
 }

@@ -35,21 +35,21 @@
             this.folderdlg = new System.Windows.Forms.FolderBrowserDialog();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.gvImg = new System.Windows.Forms.DataGridView();
-            this.tools = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.tbpath = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.tbpname = new System.Windows.Forms.ToolStripTextBox();
-            this.btnpath = new System.Windows.Forms.ToolStripButton();
-            this.btnadd = new System.Windows.Forms.ToolStripButton();
-            this.btntran = new System.Windows.Forms.ToolStripButton();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.img = new System.Windows.Forms.DataGridViewImageColumn();
             this.fpath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.px = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.result = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tools = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.tbpname = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.tbpath = new System.Windows.Forms.ToolStripTextBox();
+            this.btnpath = new System.Windows.Forms.ToolStripButton();
+            this.btnadd = new System.Windows.Forms.ToolStripButton();
+            this.btntran = new System.Windows.Forms.ToolStripButton();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvImg)).BeginInit();
@@ -100,86 +100,6 @@
             this.gvImg.TabIndex = 14;
             this.gvImg.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvImg_CellDoubleClick);
             // 
-            // tools
-            // 
-            this.tools.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel2,
-            this.tbpname,
-            this.toolStripLabel1,
-            this.tbpath,
-            this.btnpath,
-            this.btnadd,
-            this.btntran,
-            this.toolStripComboBox1});
-            this.tools.Location = new System.Drawing.Point(0, 0);
-            this.tools.Name = "tools";
-            this.tools.Size = new System.Drawing.Size(799, 25);
-            this.tools.TabIndex = 15;
-            this.tools.Text = "toolStrip1";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(56, 22);
-            this.toolStripLabel1.Text = "保存位置";
-            // 
-            // tbpath
-            // 
-            this.tbpath.Name = "tbpath";
-            this.tbpath.Size = new System.Drawing.Size(200, 25);
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(56, 22);
-            this.toolStripLabel2.Text = "资源前缀";
-            // 
-            // tbpname
-            // 
-            this.tbpname.Name = "tbpname";
-            this.tbpname.Size = new System.Drawing.Size(100, 25);
-            this.tbpname.Text = "mipmap";
-            // 
-            // btnpath
-            // 
-            this.btnpath.CheckOnClick = true;
-            this.btnpath.Image = ((System.Drawing.Image)(resources.GetObject("btnpath.Image")));
-            this.btnpath.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnpath.Name = "btnpath";
-            this.btnpath.Size = new System.Drawing.Size(76, 22);
-            this.btnpath.Text = "选择目录";
-            this.btnpath.Click += new System.EventHandler(this.btnpath_Click);
-            // 
-            // btnadd
-            // 
-            this.btnadd.Image = ((System.Drawing.Image)(resources.GetObject("btnadd.Image")));
-            this.btnadd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnadd.Name = "btnadd";
-            this.btnadd.Size = new System.Drawing.Size(76, 22);
-            this.btnadd.Text = "添加图片";
-            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
-            // 
-            // btntran
-            // 
-            this.btntran.Image = ((System.Drawing.Image)(resources.GetObject("btntran.Image")));
-            this.btntran.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btntran.Name = "btntran";
-            this.btntran.Size = new System.Drawing.Size(76, 22);
-            this.btntran.Text = "开始转换";
-            this.btntran.Click += new System.EventHandler(this.btntran_Click);
-            // 
-            // toolStripComboBox1
-            // 
-            this.toolStripComboBox1.Items.AddRange(new object[] {
-            "ldpi 120dpi 0.75",
-            "mdpi 160dpi 1",
-            "hdpi 240dpi 1.5",
-            "xhdpi 320dpi 2",
-            "xxhdpi 480dpi 3",
-            "xxxhdpi 640dpi 4"});
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
-            // 
             // img
             // 
             this.img.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -224,12 +144,93 @@
             this.result.HeaderText = "结果";
             this.result.Name = "result";
             // 
+            // tools
+            // 
+            this.tools.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel2,
+            this.tbpname,
+            this.toolStripLabel1,
+            this.tbpath,
+            this.btnpath,
+            this.btnadd,
+            this.btntran,
+            this.toolStripComboBox1});
+            this.tools.Location = new System.Drawing.Point(0, 0);
+            this.tools.Name = "tools";
+            this.tools.Size = new System.Drawing.Size(799, 25);
+            this.tools.TabIndex = 15;
+            this.tools.Text = "toolStrip1";
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(56, 22);
+            this.toolStripLabel2.Text = "资源前缀";
+            // 
+            // tbpname
+            // 
+            this.tbpname.Name = "tbpname";
+            this.tbpname.Size = new System.Drawing.Size(100, 25);
+            this.tbpname.Text = "mipmap";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(56, 22);
+            this.toolStripLabel1.Text = "保存位置";
+            // 
+            // tbpath
+            // 
+            this.tbpath.Name = "tbpath";
+            this.tbpath.Size = new System.Drawing.Size(200, 25);
+            // 
+            // btnpath
+            // 
+            this.btnpath.CheckOnClick = true;
+            this.btnpath.Image = ((System.Drawing.Image)(resources.GetObject("btnpath.Image")));
+            this.btnpath.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnpath.Name = "btnpath";
+            this.btnpath.Size = new System.Drawing.Size(76, 22);
+            this.btnpath.Text = "选择目录";
+            this.btnpath.Click += new System.EventHandler(this.btnpath_Click);
+            // 
+            // btnadd
+            // 
+            this.btnadd.Image = ((System.Drawing.Image)(resources.GetObject("btnadd.Image")));
+            this.btnadd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnadd.Name = "btnadd";
+            this.btnadd.Size = new System.Drawing.Size(76, 22);
+            this.btnadd.Text = "添加图片";
+            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
+            // 
+            // btntran
+            // 
+            this.btntran.Image = ((System.Drawing.Image)(resources.GetObject("btntran.Image")));
+            this.btntran.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btntran.Name = "btntran";
+            this.btntran.Size = new System.Drawing.Size(76, 22);
+            this.btntran.Text = "开始转换";
+            this.btntran.Click += new System.EventHandler(this.btntran_Click);
+            // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.Items.AddRange(new object[] {
+            "ldpi 120dpi 0.75",
+            "mdpi 160dpi 1",
+            "hdpi 240dpi 1.5",
+            "xhdpi 320dpi 2",
+            "xxhdpi 480dpi 3",
+            "xxxhdpi 640dpi 4"});
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
+            // 
             // toolTip1
             // 
             this.toolTip1.ToolTipTitle = "双击退出图片查看";
             // 
             // Form1
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 515);
@@ -241,6 +242,8 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "菜渣渣--Android资源批量生成器";
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvImg)).EndInit();
             this.tools.ResumeLayout(false);
