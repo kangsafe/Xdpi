@@ -17,8 +17,9 @@ namespace XDPI
     {
         private string savepath = "";
         private string prepath = "";
-        private string[] paths = { "-xxxhdpi", "-xxhdpi", "-xhdpi", "-hdpi", "-mdpi", "-ldpi" };
-        private double[] rates = { 4, 3, 2, 1.5, 1, 0.75 };
+        private string[] paths = { "-ldpi", "-mdpi", "-hdpi", "-xhdpi", "-xxhdpi", "-xxxhdpi" };
+        private double[] rates = { 0.75, 1, 1.5, 2, 3, 4 };
+        private Dictionary<string, double> d = new Dictionary<string, double>();
         public Form1()
         {
             InitializeComponent();
@@ -27,6 +28,10 @@ namespace XDPI
             tbpath.Text = savepath;
             filedlg.Multiselect = true;
             filedlg.Filter = "png|*.png|jpg|*.jpg|bmp|*.bmp";
+            for (int i = 0; i < rates.Length; i++)
+            {
+                d.Add(paths[i], rates[i]);
+            }
         }
 
         //添加图片
@@ -78,19 +83,20 @@ namespace XDPI
         private void btntran_Click(object sender, EventArgs e)
         {
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = paths.Length * (gvImg.Rows.Count - 1);
+            progressBar1.Maximum = d.Count * (gvImg.Rows.Count - 1);
             progressBar1.Value = 0;
             progressBar1.Show();
             //保存路径
             prepath = tbpname.Text;
+            d.OrderBy(t => t.Key);
+            double rate = d.Last().Value;
             for (int r = 0; r < gvImg.Rows.Count - 1; r++)
             {
                 StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < paths.Length; i++)
+                foreach (string key in d.Keys)
                 {
-                    progressBar1.Value = r * paths.Length + i + 1;
                     Bitmap oldbmp = new Bitmap(gvImg.Rows[r].Cells[1].Value.ToString());
-                    string temp = savepath + "\\" + prepath + paths[i];
+                    string temp = savepath + "\\" + prepath + key;
                     if (!Directory.Exists(temp))
                     {
                         Directory.CreateDirectory(temp);
@@ -98,22 +104,23 @@ namespace XDPI
                     string fp = temp + "\\" + gvImg.Rows[r].Cells[2].Value.ToString() + Path.GetExtension(gvImg.Rows[r].Cells[1].Value.ToString());
                     if (!File.Exists(fp))
                     {
-                        if (i == 0)
+                        if (d[key] == rate)
                         {
                             File.Copy(gvImg.Rows[r].Cells[1].Value.ToString(), fp);
                         }
                         else
                         {
-                            Bitmap bmp = GetThumbnail(oldbmp, rates[i] / rates[0]);
+                            Bitmap bmp = GetThumbnail(oldbmp, d[key] / rate);
                             bmp.Save(fp);
                             bmp.Dispose();
                         }
                     }
                     else
                     {
-                        sb.Append(prepath + paths[i] + ",");
+                        sb.Append(prepath + key + ",");
                     }
                     oldbmp.Dispose();
+
                 }
                 if (sb.ToString().Length > 0)
                 {
@@ -203,49 +210,127 @@ namespace XDPI
                     deep.Value = img.HorizontalResolution + "X" + img.VerticalResolution;
                     row.Cells.Add(deep);
                     gvImg.Rows.Add(row);
-                }                                                          //如果有多个文件,files[0]就是第一个文件的路径了
-                //richTextBox1.Text = System.IO.File.ReadAllText(files[0]);//IO操作读入文本内容
+                }
             }
-            //Cursor = Cursors.NoMove2D;
         }
 
         private void Form1_DragDrop(object sender, DragEventArgs e)
         {
-            ////获取拖入的数据
-            //if (e.Data.GetDataPresent(DataFormats.FileDrop))//判断拖进来是不是文件类型的
-            //{
-            //    //取出文件数组(保存在files数组中)
-            //    string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-            //    for (int i = 0; i < files.Length; i++)
-            //    {
-            //        DataGridViewRow row = new DataGridViewRow();
-            //        //图片
-            //        Image img = Image.FromFile(files[i]);
-            //        DataGridViewImageCell imgc = new DataGridViewImageCell();
-            //        imgc.Value = img;
-            //        imgc.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            //        imgc.ToolTipText = "双击查看大图";
-            //        row.Cells.Add(imgc);
-            //        //路径
-            //        DataGridViewTextBoxCell path = new DataGridViewTextBoxCell();
-            //        path.Value = files[i];
-            //        row.Cells.Add(path);
-            //        //文件名
-            //        DataGridViewTextBoxCell name = new DataGridViewTextBoxCell();
-            //        name.Value = Path.GetFileNameWithoutExtension(files[i]);
-            //        row.Cells.Add(name);
-            //        //像素
-            //        DataGridViewTextBoxCell px = new DataGridViewTextBoxCell();
-            //        px.Value = img.Width + "X" + img.Height;
-            //        row.Cells.Add(px);
-            //        //分辨率
-            //        DataGridViewTextBoxCell deep = new DataGridViewTextBoxCell();
-            //        deep.Value = img.HorizontalResolution + "X" + img.VerticalResolution;
-            //        row.Cells.Add(deep);
-            //        gvImg.Rows.Add(row);
-            //    }                                                          //如果有多个文件,files[0]就是第一个文件的路径了
-            //    //richTextBox1.Text = System.IO.File.ReadAllText(files[0]);//IO操作读入文本内容
-            //}
+
+        }
+
+        private void lhpi_CheckedChanged(object sender, EventArgs e)
+        {
+            //选中
+            if (lhpi.Checked)
+            {
+                if (!d.ContainsKey(paths[0]))
+                {
+                    d.Add(paths[0], rates[0]);
+                }
+            }
+            else//取消选中
+            {
+                if (d.ContainsKey(paths[0]))
+                {
+                    d.Remove(paths[0]);
+                }
+            }
+        }
+
+        private void mdpi_CheckedChanged(object sender, EventArgs e)
+        {
+            //选中
+            if (mdpi.Checked)
+            {
+                if (!d.ContainsKey(paths[1]))
+                {
+                    d.Add(paths[1], rates[1]);
+                }
+            }
+            else//取消选中
+            {
+                if (d.ContainsKey(paths[1]))
+                {
+                    d.Remove(paths[1]);
+                }
+            }
+        }
+
+        private void hdpi_CheckedChanged(object sender, EventArgs e)
+        {
+            //选中
+            if (hdpi.Checked)
+            {
+                if (!d.ContainsKey(paths[2]))
+                {
+                    d.Add(paths[2], rates[2]);
+                }
+            }
+            else//取消选中
+            {
+                if (d.ContainsKey(paths[2]))
+                {
+                    d.Remove(paths[2]);
+                }
+            }
+        }
+
+        private void xhdpi_CheckedChanged(object sender, EventArgs e)
+        {
+            //选中
+            if (xhdpi.Checked)
+            {
+                if (!d.ContainsKey(paths[3]))
+                {
+                    d.Add(paths[3], rates[3]);
+                }
+            }
+            else//取消选中
+            {
+                if (d.ContainsKey(paths[3]))
+                {
+                    d.Remove(paths[3]);
+                }
+            }
+        }
+
+        private void xxhdpi_CheckedChanged(object sender, EventArgs e)
+        {
+            //选中
+            if (xxhdpi.Checked)
+            {
+                if (!d.ContainsKey(paths[4]))
+                {
+                    d.Add(paths[4], rates[4]);
+                }
+            }
+            else//取消选中
+            {
+                if (d.ContainsKey(paths[4]))
+                {
+                    d.Remove(paths[4]);
+                }
+            }
+        }
+
+        private void xxxhdpi_CheckedChanged(object sender, EventArgs e)
+        {
+            //选中
+            if (xxxhdpi.Checked)
+            {
+                if (!d.ContainsKey(paths[5]))
+                {
+                    d.Add(paths[5], rates[5]);
+                }
+            }
+            else//取消选中
+            {
+                if (d.ContainsKey(paths[5]))
+                {
+                    d.Remove(paths[5]);
+                }
+            }
         }
     }
 }

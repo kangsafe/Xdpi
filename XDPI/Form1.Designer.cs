@@ -51,6 +51,13 @@
             this.btntran = new System.Windows.Forms.ToolStripButton();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.lhpi = new System.Windows.Forms.ToolStripMenuItem();
+            this.mdpi = new System.Windows.Forms.ToolStripMenuItem();
+            this.hdpi = new System.Windows.Forms.ToolStripMenuItem();
+            this.xhdpi = new System.Windows.Forms.ToolStripMenuItem();
+            this.xxhdpi = new System.Windows.Forms.ToolStripMenuItem();
+            this.xxxhdpi = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvImg)).BeginInit();
             this.tools.SuspendLayout();
@@ -63,7 +70,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 25);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(799, 490);
+            this.pictureBox1.Size = new System.Drawing.Size(1045, 490);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -77,7 +84,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar1.Location = new System.Drawing.Point(224, 217);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(357, 23);
+            this.progressBar1.Size = new System.Drawing.Size(603, 23);
             this.progressBar1.Step = 1;
             this.progressBar1.TabIndex = 12;
             // 
@@ -96,7 +103,7 @@
             this.gvImg.Location = new System.Drawing.Point(0, 25);
             this.gvImg.Name = "gvImg";
             this.gvImg.RowTemplate.Height = 23;
-            this.gvImg.Size = new System.Drawing.Size(799, 490);
+            this.gvImg.Size = new System.Drawing.Size(1045, 490);
             this.gvImg.TabIndex = 14;
             this.gvImg.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvImg_CellDoubleClick);
             // 
@@ -154,10 +161,11 @@
             this.btnpath,
             this.btnadd,
             this.btntran,
-            this.toolStripComboBox1});
+            this.toolStripComboBox1,
+            this.toolStripDropDownButton1});
             this.tools.Location = new System.Drawing.Point(0, 0);
             this.tools.Name = "tools";
-            this.tools.Size = new System.Drawing.Size(799, 25);
+            this.tools.Size = new System.Drawing.Size(1045, 25);
             this.tools.TabIndex = 15;
             this.tools.Text = "toolStrip1";
             // 
@@ -223,17 +231,94 @@
             "xxxhdpi 640dpi 4"});
             this.toolStripComboBox1.Name = "toolStripComboBox1";
             this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
+            this.toolStripComboBox1.Visible = false;
             // 
             // toolTip1
             // 
             this.toolTip1.ToolTipTitle = "双击退出图片查看";
+            // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lhpi,
+            this.mdpi,
+            this.hdpi,
+            this.xhdpi,
+            this.xxhdpi,
+            this.xxxhdpi});
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(69, 22);
+            this.toolStripDropDownButton1.Text = "选择尺寸";
+            // 
+            // lhpi
+            // 
+            this.lhpi.Checked = true;
+            this.lhpi.CheckOnClick = true;
+            this.lhpi.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.lhpi.Name = "lhpi";
+            this.lhpi.Size = new System.Drawing.Size(152, 22);
+            this.lhpi.Text = "lhpi";
+            this.lhpi.CheckedChanged += new System.EventHandler(this.lhpi_CheckedChanged);
+            // 
+            // mdpi
+            // 
+            this.mdpi.Checked = true;
+            this.mdpi.CheckOnClick = true;
+            this.mdpi.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.mdpi.Name = "mdpi";
+            this.mdpi.Size = new System.Drawing.Size(152, 22);
+            this.mdpi.Text = "mdpi";
+            this.mdpi.CheckedChanged += new System.EventHandler(this.mdpi_CheckedChanged);
+            // 
+            // hdpi
+            // 
+            this.hdpi.Checked = true;
+            this.hdpi.CheckOnClick = true;
+            this.hdpi.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.hdpi.Name = "hdpi";
+            this.hdpi.Size = new System.Drawing.Size(152, 22);
+            this.hdpi.Text = "hdpi";
+            this.hdpi.CheckedChanged += new System.EventHandler(this.hdpi_CheckedChanged);
+            // 
+            // xhdpi
+            // 
+            this.xhdpi.Checked = true;
+            this.xhdpi.CheckOnClick = true;
+            this.xhdpi.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.xhdpi.Name = "xhdpi";
+            this.xhdpi.Size = new System.Drawing.Size(152, 22);
+            this.xhdpi.Text = "xhdpi";
+            this.xhdpi.CheckedChanged += new System.EventHandler(this.xhdpi_CheckedChanged);
+            // 
+            // xxhdpi
+            // 
+            this.xxhdpi.Checked = true;
+            this.xxhdpi.CheckOnClick = true;
+            this.xxhdpi.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.xxhdpi.Name = "xxhdpi";
+            this.xxhdpi.Size = new System.Drawing.Size(152, 22);
+            this.xxhdpi.Text = "xxhdpi";
+            this.xxhdpi.CheckedChanged += new System.EventHandler(this.xxhdpi_CheckedChanged);
+            // 
+            // xxxhdpi
+            // 
+            this.xxxhdpi.Checked = true;
+            this.xxxhdpi.CheckOnClick = true;
+            this.xxxhdpi.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.xxxhdpi.Name = "xxxhdpi";
+            this.xxxhdpi.Size = new System.Drawing.Size(152, 22);
+            this.xxxhdpi.Text = "xxxhdpi";
+            this.xxxhdpi.CheckedChanged += new System.EventHandler(this.xxxhdpi_CheckedChanged);
             // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(799, 515);
+            this.ClientSize = new System.Drawing.Size(1045, 515);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gvImg);
@@ -275,6 +360,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn deep;
         private System.Windows.Forms.DataGridViewTextBoxColumn result;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripMenuItem lhpi;
+        private System.Windows.Forms.ToolStripMenuItem mdpi;
+        private System.Windows.Forms.ToolStripMenuItem hdpi;
+        private System.Windows.Forms.ToolStripMenuItem xhdpi;
+        private System.Windows.Forms.ToolStripMenuItem xxhdpi;
+        private System.Windows.Forms.ToolStripMenuItem xxxhdpi;
     }
 }
 
