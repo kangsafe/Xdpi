@@ -50,7 +50,6 @@
             this.btnadd = new System.Windows.Forms.ToolStripButton();
             this.btntran = new System.Windows.Forms.ToolStripButton();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.lhpi = new System.Windows.Forms.ToolStripMenuItem();
             this.mdpi = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +57,7 @@
             this.xhdpi = new System.Windows.Forms.ToolStripMenuItem();
             this.xxhdpi = new System.Windows.Forms.ToolStripMenuItem();
             this.xxxhdpi = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvImg)).BeginInit();
             this.tools.SuspendLayout();
@@ -233,10 +233,6 @@
             this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
             this.toolStripComboBox1.Visible = false;
             // 
-            // toolTip1
-            // 
-            this.toolTip1.ToolTipTitle = "双击退出图片查看";
-            // 
             // toolStripDropDownButton1
             // 
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -255,9 +251,7 @@
             // 
             // lhpi
             // 
-            this.lhpi.Checked = true;
             this.lhpi.CheckOnClick = true;
-            this.lhpi.CheckState = System.Windows.Forms.CheckState.Checked;
             this.lhpi.Name = "lhpi";
             this.lhpi.Size = new System.Drawing.Size(152, 22);
             this.lhpi.Text = "lhpi";
@@ -305,13 +299,15 @@
             // 
             // xxxhdpi
             // 
-            this.xxxhdpi.Checked = true;
             this.xxxhdpi.CheckOnClick = true;
-            this.xxxhdpi.CheckState = System.Windows.Forms.CheckState.Checked;
             this.xxxhdpi.Name = "xxxhdpi";
             this.xxxhdpi.Size = new System.Drawing.Size(152, 22);
             this.xxxhdpi.Text = "xxxhdpi";
             this.xxxhdpi.CheckedChanged += new System.EventHandler(this.xxxhdpi_CheckedChanged);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.ToolTipTitle = "双击退出图片查看";
             // 
             // Form1
             // 

@@ -30,7 +30,10 @@ namespace XDPI
             filedlg.Filter = "png|*.png|jpg|*.jpg|bmp|*.bmp";
             for (int i = 0; i < rates.Length; i++)
             {
-                d.Add(paths[i], rates[i]);
+                if (paths[i] != paths[0] && paths[i] != paths[5])
+                {
+                    d.Add(paths[i], rates[i]);
+                }
             }
         }
 
