@@ -48,7 +48,7 @@ namespace XDPI
                     //图片
                     Image img = Image.FromFile(filedlg.FileNames[i]);
                     DataGridViewImageCell imgc = new DataGridViewImageCell();
-                    imgc.Value = img.Clone();
+                    imgc.Value = (Image)img.Clone();
                     imgc.ImageLayout = DataGridViewImageCellLayout.Zoom;
                     imgc.ToolTipText = "双击查看大图";
                     row.Cells.Add(imgc);
@@ -193,7 +193,7 @@ namespace XDPI
                     //图片
                     Image img = Image.FromFile(files[i]);
                     DataGridViewImageCell imgc = new DataGridViewImageCell();
-                    imgc.Value = img.Clone();
+                    imgc.Value = (Image)img.Clone();
                     imgc.ImageLayout = DataGridViewImageCellLayout.Zoom;
                     imgc.ToolTipText = "双击查看大图";
                     row.Cells.Add(imgc);
