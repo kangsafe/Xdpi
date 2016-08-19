@@ -193,10 +193,11 @@ namespace XDPI
                     //图片
                     Image img = Image.FromFile(files[i]);
                     DataGridViewImageCell imgc = new DataGridViewImageCell();
-                    imgc.Value = img;
+                    imgc.Value = img.Clone();
                     imgc.ImageLayout = DataGridViewImageCellLayout.Zoom;
                     imgc.ToolTipText = "双击查看大图";
                     row.Cells.Add(imgc);
+                    img.Dispose();
                     //路径
                     DataGridViewTextBoxCell path = new DataGridViewTextBoxCell();
                     path.Value = files[i];
