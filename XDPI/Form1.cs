@@ -52,7 +52,6 @@ namespace XDPI
                     imgc.ImageLayout = DataGridViewImageCellLayout.Zoom;
                     imgc.ToolTipText = "双击查看大图";
                     row.Cells.Add(imgc);
-                    img.Dispose();
                     //路径
                     DataGridViewTextBoxCell path = new DataGridViewTextBoxCell();
                     path.Value = filedlg.FileNames[i];
@@ -70,6 +69,7 @@ namespace XDPI
                     deep.Value = img.HorizontalResolution + "X" + img.VerticalResolution;
                     row.Cells.Add(deep);
                     gvImg.Rows.Add(row);
+                    img.Dispose();
                 }
             }
         }
@@ -197,7 +197,6 @@ namespace XDPI
                     imgc.ImageLayout = DataGridViewImageCellLayout.Zoom;
                     imgc.ToolTipText = "双击查看大图";
                     row.Cells.Add(imgc);
-                    img.Dispose();
                     //路径
                     DataGridViewTextBoxCell path = new DataGridViewTextBoxCell();
                     path.Value = files[i];
@@ -215,6 +214,7 @@ namespace XDPI
                     deep.Value = img.HorizontalResolution + "X" + img.VerticalResolution;
                     row.Cells.Add(deep);
                     gvImg.Rows.Add(row);
+                    img.Dispose();
                 }
             }
         }
