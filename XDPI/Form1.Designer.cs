@@ -49,6 +49,7 @@
             this.btnpath = new System.Windows.Forms.ToolStripButton();
             this.btnadd = new System.Windows.Forms.ToolStripButton();
             this.btntran = new System.Windows.Forms.ToolStripButton();
+            this.btnZip = new System.Windows.Forms.ToolStripButton();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.lhpi = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,7 +59,12 @@
             this.xxhdpi = new System.Windows.Forms.ToolStripMenuItem();
             this.xxxhdpi = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnZip = new System.Windows.Forms.ToolStripButton();
+            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.word2PDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.excel2PDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.visio2PDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pPT2PDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.msProject2PDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvImg)).BeginInit();
             this.tools.SuspendLayout();
@@ -71,7 +77,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 25);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(795, 490);
+            this.pictureBox1.Size = new System.Drawing.Size(1043, 490);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -85,7 +91,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar1.Location = new System.Drawing.Point(224, 217);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(353, 23);
+            this.progressBar1.Size = new System.Drawing.Size(601, 23);
             this.progressBar1.Step = 1;
             this.progressBar1.TabIndex = 12;
             // 
@@ -104,7 +110,7 @@
             this.gvImg.Location = new System.Drawing.Point(0, 25);
             this.gvImg.Name = "gvImg";
             this.gvImg.RowTemplate.Height = 23;
-            this.gvImg.Size = new System.Drawing.Size(795, 490);
+            this.gvImg.Size = new System.Drawing.Size(1043, 490);
             this.gvImg.TabIndex = 14;
             this.gvImg.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvImg_CellDoubleClick);
             // 
@@ -164,10 +170,11 @@
             this.btntran,
             this.btnZip,
             this.toolStripComboBox1,
-            this.toolStripDropDownButton1});
+            this.toolStripDropDownButton1,
+            this.toolStripDropDownButton2});
             this.tools.Location = new System.Drawing.Point(0, 0);
             this.tools.Name = "tools";
-            this.tools.Size = new System.Drawing.Size(795, 25);
+            this.tools.Size = new System.Drawing.Size(1043, 25);
             this.tools.TabIndex = 15;
             this.tools.Text = "toolStrip1";
             // 
@@ -223,6 +230,15 @@
             this.btntran.Text = "转换";
             this.btntran.Click += new System.EventHandler(this.btntran_Click);
             // 
+            // btnZip
+            // 
+            this.btnZip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnZip.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnZip.Name = "btnZip";
+            this.btnZip.Size = new System.Drawing.Size(57, 22);
+            this.btnZip.Text = "TinyPng";
+            this.btnZip.Click += new System.EventHandler(this.btnZip_Click);
+            // 
             // toolStripComboBox1
             // 
             this.toolStripComboBox1.Items.AddRange(new object[] {
@@ -256,7 +272,7 @@
             // 
             this.lhpi.CheckOnClick = true;
             this.lhpi.Name = "lhpi";
-            this.lhpi.Size = new System.Drawing.Size(152, 22);
+            this.lhpi.Size = new System.Drawing.Size(120, 22);
             this.lhpi.Text = "lhpi";
             this.lhpi.CheckedChanged += new System.EventHandler(this.lhpi_CheckedChanged);
             // 
@@ -266,7 +282,7 @@
             this.mdpi.CheckOnClick = true;
             this.mdpi.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mdpi.Name = "mdpi";
-            this.mdpi.Size = new System.Drawing.Size(152, 22);
+            this.mdpi.Size = new System.Drawing.Size(120, 22);
             this.mdpi.Text = "mdpi";
             this.mdpi.CheckedChanged += new System.EventHandler(this.mdpi_CheckedChanged);
             // 
@@ -276,7 +292,7 @@
             this.hdpi.CheckOnClick = true;
             this.hdpi.CheckState = System.Windows.Forms.CheckState.Checked;
             this.hdpi.Name = "hdpi";
-            this.hdpi.Size = new System.Drawing.Size(152, 22);
+            this.hdpi.Size = new System.Drawing.Size(120, 22);
             this.hdpi.Text = "hdpi";
             this.hdpi.CheckedChanged += new System.EventHandler(this.hdpi_CheckedChanged);
             // 
@@ -286,7 +302,7 @@
             this.xhdpi.CheckOnClick = true;
             this.xhdpi.CheckState = System.Windows.Forms.CheckState.Checked;
             this.xhdpi.Name = "xhdpi";
-            this.xhdpi.Size = new System.Drawing.Size(152, 22);
+            this.xhdpi.Size = new System.Drawing.Size(120, 22);
             this.xhdpi.Text = "xhdpi";
             this.xhdpi.CheckedChanged += new System.EventHandler(this.xhdpi_CheckedChanged);
             // 
@@ -296,7 +312,7 @@
             this.xxhdpi.CheckOnClick = true;
             this.xxhdpi.CheckState = System.Windows.Forms.CheckState.Checked;
             this.xxhdpi.Name = "xxhdpi";
-            this.xxhdpi.Size = new System.Drawing.Size(152, 22);
+            this.xxhdpi.Size = new System.Drawing.Size(120, 22);
             this.xxhdpi.Text = "xxhdpi";
             this.xxhdpi.CheckedChanged += new System.EventHandler(this.xxhdpi_CheckedChanged);
             // 
@@ -304,7 +320,7 @@
             // 
             this.xxxhdpi.CheckOnClick = true;
             this.xxxhdpi.Name = "xxxhdpi";
-            this.xxxhdpi.Size = new System.Drawing.Size(152, 22);
+            this.xxxhdpi.Size = new System.Drawing.Size(120, 22);
             this.xxxhdpi.Text = "xxxhdpi";
             this.xxxhdpi.CheckedChanged += new System.EventHandler(this.xxxhdpi_CheckedChanged);
             // 
@@ -312,21 +328,62 @@
             // 
             this.toolTip1.ToolTipTitle = "双击退出图片查看";
             // 
-            // btnZip
+            // toolStripDropDownButton2
             // 
-            this.btnZip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnZip.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnZip.Name = "btnZip";
-            this.btnZip.Size = new System.Drawing.Size(57, 22);
-            this.btnZip.Text = "TinyPng";
-            this.btnZip.Click += new System.EventHandler(this.btnZip_Click);
+            this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.word2PDFToolStripMenuItem,
+            this.excel2PDFToolStripMenuItem,
+            this.visio2PDFToolStripMenuItem,
+            this.pPT2PDFToolStripMenuItem,
+            this.msProject2PDFToolStripMenuItem});
+            this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
+            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(84, 22);
+            this.toolStripDropDownButton2.Text = "Office2PDF";
+            // 
+            // word2PDFToolStripMenuItem
+            // 
+            this.word2PDFToolStripMenuItem.Name = "word2PDFToolStripMenuItem";
+            this.word2PDFToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.word2PDFToolStripMenuItem.Text = "Word2PDF";
+            this.word2PDFToolStripMenuItem.Click += new System.EventHandler(this.word2PDFToolStripMenuItem_Click);
+            // 
+            // excel2PDFToolStripMenuItem
+            // 
+            this.excel2PDFToolStripMenuItem.Name = "excel2PDFToolStripMenuItem";
+            this.excel2PDFToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.excel2PDFToolStripMenuItem.Text = "Excel2PDF";
+            this.excel2PDFToolStripMenuItem.Click += new System.EventHandler(this.excel2PDFToolStripMenuItem_Click);
+            // 
+            // visio2PDFToolStripMenuItem
+            // 
+            this.visio2PDFToolStripMenuItem.Name = "visio2PDFToolStripMenuItem";
+            this.visio2PDFToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.visio2PDFToolStripMenuItem.Text = "Visio2PDF";
+            this.visio2PDFToolStripMenuItem.Click += new System.EventHandler(this.visio2PDFToolStripMenuItem_Click);
+            // 
+            // pPT2PDFToolStripMenuItem
+            // 
+            this.pPT2PDFToolStripMenuItem.Name = "pPT2PDFToolStripMenuItem";
+            this.pPT2PDFToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.pPT2PDFToolStripMenuItem.Text = "PPT2PDF";
+            this.pPT2PDFToolStripMenuItem.Click += new System.EventHandler(this.pPT2PDFToolStripMenuItem_Click);
+            // 
+            // msProject2PDFToolStripMenuItem
+            // 
+            this.msProject2PDFToolStripMenuItem.Name = "msProject2PDFToolStripMenuItem";
+            this.msProject2PDFToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.msProject2PDFToolStripMenuItem.Text = "MsProject2PDF";
+            this.msProject2PDFToolStripMenuItem.Click += new System.EventHandler(this.msProject2PDFToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 515);
+            this.ClientSize = new System.Drawing.Size(1043, 515);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gvImg);
@@ -376,6 +433,12 @@
         private System.Windows.Forms.ToolStripMenuItem xxhdpi;
         private System.Windows.Forms.ToolStripMenuItem xxxhdpi;
         private System.Windows.Forms.ToolStripButton btnZip;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
+        private System.Windows.Forms.ToolStripMenuItem word2PDFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem excel2PDFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem visio2PDFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pPT2PDFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem msProject2PDFToolStripMenuItem;
     }
 }
 

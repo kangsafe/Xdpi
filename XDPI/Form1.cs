@@ -344,7 +344,7 @@ namespace XDPI
         {
             getAllFiles(savepath);
             Console.WriteLine(list.Count);
-            foreach(string f in list)
+            foreach (string f in list)
             {
                 tinypng(f);
             }
@@ -411,6 +411,121 @@ namespace XDPI
                 /* Something went wrong! You can parse the JSON body for details. */
                 Console.WriteLine("Compression failed.");
             }
+        }
+        /// <summary>
+        /// office word2PDF
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void word2PDFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (list != null && list.Count > 0)
+            {
+                list.Clear();
+            }
+            else
+            {
+                list = new List<string>();
+            }
+
+            getAllFiles(savepath);
+            var q1 = list.Where(t => t.ToLower().EndsWith(".doc") || t.ToLower().EndsWith(".docx")).ToList();
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = q1.Count;
+            progressBar1.Value = 0;
+            progressBar1.Show();
+            foreach (string p in q1)
+            {
+                progressBar1.Value += 1;
+                string temp = p.ToLower();
+                if (temp.EndsWith(".doc"))
+                {
+                    OfficeUtils.WordToPDF(p, temp.TrimEnd(".doc".ToArray()) + ".pdf");
+                }
+                else
+                {
+                    OfficeUtils.WordToPDF(p, temp.TrimEnd(".docx".ToArray()) + ".pdf");
+                }
+            }
+            progressBar1.Hide();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void excel2PDFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (list != null && list.Count > 0)
+            {
+                list.Clear();
+            }
+            else
+            {
+                list = new List<string>();
+            }
+            getAllFiles(savepath);
+            var q1 = list.Where(t => t.ToLower().EndsWith(".xls") || t.ToLower().EndsWith(".xlsx")).ToList();
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = q1.Count;
+            progressBar1.Value = 0;
+            progressBar1.Show();
+            foreach (string p in q1)
+            {
+                progressBar1.Value += 1;
+                string temp = p.ToLower();
+                if (temp.EndsWith(".xls"))
+                {
+                    OfficeUtils.WordToPDF(p, temp.TrimEnd(".xls".ToArray()) + ".pdf");
+                }
+                else
+                {
+                    OfficeUtils.WordToPDF(p, temp.TrimEnd(".xlsx".ToArray()) + ".pdf");
+                }
+            }
+            progressBar1.Hide();
+        }
+
+        private void visio2PDFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pPT2PDFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (list != null && list.Count > 0)
+            {
+                list.Clear();
+            }
+            else
+            {
+                list = new List<string>();
+            }
+            getAllFiles(savepath);
+            var q1 = list.Where(t => t.ToLower().EndsWith(".ppt") || t.ToLower().EndsWith(".pptx")).ToList();
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = q1.Count;
+            progressBar1.Value = 0;
+            progressBar1.Show();
+            foreach (string p in q1)
+            {
+                progressBar1.Value += 1;
+                string temp = p.ToLower();
+                if (temp.EndsWith(".ppt"))
+                {
+                    OfficeUtils.WordToPDF(p, temp.TrimEnd(".ppt".ToArray()) + ".pdf");
+                }
+                else
+                {
+                    OfficeUtils.WordToPDF(p, temp.TrimEnd(".pptx".ToArray()) + ".pdf");
+                }
+            }
+            progressBar1.Hide();
+        }
+
+        private void msProject2PDFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
