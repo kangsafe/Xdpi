@@ -58,6 +58,7 @@
             this.xxhdpi = new System.Windows.Forms.ToolStripMenuItem();
             this.xxxhdpi = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnZip = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvImg)).BeginInit();
             this.tools.SuspendLayout();
@@ -70,7 +71,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 25);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(569, 490);
+            this.pictureBox1.Size = new System.Drawing.Size(795, 490);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -84,7 +85,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar1.Location = new System.Drawing.Point(224, 217);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(127, 23);
+            this.progressBar1.Size = new System.Drawing.Size(353, 23);
             this.progressBar1.Step = 1;
             this.progressBar1.TabIndex = 12;
             // 
@@ -103,7 +104,7 @@
             this.gvImg.Location = new System.Drawing.Point(0, 25);
             this.gvImg.Name = "gvImg";
             this.gvImg.RowTemplate.Height = 23;
-            this.gvImg.Size = new System.Drawing.Size(569, 490);
+            this.gvImg.Size = new System.Drawing.Size(795, 490);
             this.gvImg.TabIndex = 14;
             this.gvImg.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvImg_CellDoubleClick);
             // 
@@ -161,11 +162,12 @@
             this.btnpath,
             this.btnadd,
             this.btntran,
+            this.btnZip,
             this.toolStripComboBox1,
             this.toolStripDropDownButton1});
             this.tools.Location = new System.Drawing.Point(0, 0);
             this.tools.Name = "tools";
-            this.tools.Size = new System.Drawing.Size(569, 25);
+            this.tools.Size = new System.Drawing.Size(795, 25);
             this.tools.TabIndex = 15;
             this.tools.Text = "toolStrip1";
             // 
@@ -310,12 +312,21 @@
             // 
             this.toolTip1.ToolTipTitle = "双击退出图片查看";
             // 
+            // btnZip
+            // 
+            this.btnZip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnZip.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnZip.Name = "btnZip";
+            this.btnZip.Size = new System.Drawing.Size(57, 22);
+            this.btnZip.Text = "TinyPng";
+            this.btnZip.Click += new System.EventHandler(this.btnZip_Click);
+            // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(569, 515);
+            this.ClientSize = new System.Drawing.Size(795, 515);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gvImg);
@@ -364,6 +375,7 @@
         private System.Windows.Forms.ToolStripMenuItem xhdpi;
         private System.Windows.Forms.ToolStripMenuItem xxhdpi;
         private System.Windows.Forms.ToolStripMenuItem xxxhdpi;
+        private System.Windows.Forms.ToolStripButton btnZip;
     }
 }
 

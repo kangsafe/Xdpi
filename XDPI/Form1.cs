@@ -7,6 +7,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -20,6 +21,7 @@ namespace XDPI
         private string[] paths = { "-ldpi", "-mdpi", "-hdpi", "-xhdpi", "-xxhdpi", "-xxxhdpi" };
         private double[] rates = { 0.75, 1, 1.5, 2, 3, 4 };
         private Dictionary<string, double> d = new Dictionary<string, double>();
+
         public Form1()
         {
             InitializeComponent();
@@ -337,5 +339,80 @@ namespace XDPI
                 }
             }
         }
+
+        private void btnZip_Click(object sender, EventArgs e)
+        {
+            getAllFiles(savepath);
+            Console.WriteLine(list.Count);
+            foreach(string f in list)
+            {
+                tinypng(f);
+            }
+
+        }
+        public string[] GetDirs(string path)
+        {
+            try
+            {
+                return Directory.GetDirectories(path);
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public string[] getFiles(string path)
+        {
+            try
+            {
+                return Directory.GetFiles(path);
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+        private List<string> list = new List<string>();
+        public void getAllFiles(string path)
+        {
+            string[] files = getFiles(path);
+            if (files != null && files.Length > 0)
+            {
+                list.AddRange(files);
+            }
+            string[] dirs = GetDirs(path);
+            if (dirs != null && dirs.Length > 0)
+            {
+                foreach (string dir in dirs)
+                {
+                    getAllFiles(dir);
+                }
+            }
+        }
+
+        public void tinypng(string path)
+        {
+            string key = "uTx9Gl3VZY3xS6AJO8AnREux08o_4QYT";
+
+            string url = "https://api.tinify.com/shrink";
+
+            WebClient client = new WebClient();
+            string auth = Convert.ToBase64String(Encoding.UTF8.GetBytes("api:" + key));
+            client.Headers.Add(HttpRequestHeader.Authorization, "Basic " + auth);
+            try
+            {
+                client.UploadData(url, File.ReadAllBytes(path));
+                /* Compression was successful, retrieve output from Location header. */
+                client.DownloadFile(client.ResponseHeaders["Location"], path);
+            }
+            catch (WebException)
+            {
+                /* Something went wrong! You can parse the JSON body for details. */
+                Console.WriteLine("Compression failed.");
+            }
+        }
     }
+
 }
+
