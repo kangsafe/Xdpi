@@ -58,13 +58,13 @@
             this.xhdpi = new System.Windows.Forms.ToolStripMenuItem();
             this.xxhdpi = new System.Windows.Forms.ToolStripMenuItem();
             this.xxxhdpi = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.word2PDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excel2PDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.visio2PDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pPT2PDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msProject2PDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvImg)).BeginInit();
             this.tools.SuspendLayout();
@@ -324,10 +324,6 @@
             this.xxxhdpi.Text = "xxxhdpi";
             this.xxxhdpi.CheckedChanged += new System.EventHandler(this.xxxhdpi_CheckedChanged);
             // 
-            // toolTip1
-            // 
-            this.toolTip1.ToolTipTitle = "双击退出图片查看";
-            // 
             // toolStripDropDownButton2
             // 
             this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -377,6 +373,10 @@
             this.msProject2PDFToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.msProject2PDFToolStripMenuItem.Text = "MsProject2PDF";
             this.msProject2PDFToolStripMenuItem.Click += new System.EventHandler(this.msProject2PDFToolStripMenuItem_Click);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.ToolTipTitle = "双击退出图片查看";
             // 
             // Form1
             // 

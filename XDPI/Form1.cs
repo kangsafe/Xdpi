@@ -342,12 +342,15 @@ namespace XDPI
 
         private void btnZip_Click(object sender, EventArgs e)
         {
-            getAllFiles(savepath);
-            Console.WriteLine(list.Count);
-            foreach (string f in list)
-            {
-                tinypng(f);
-            }
+            //getAllFiles(savepath);
+            //Console.WriteLine(list.Count);
+            //foreach (string f in list)
+            //{
+            //    tinypng(f);
+            //}
+            FormTinyPng frm = new FormTinyPng(this);
+            frm.Show();
+            this.Hide();
 
         }
         public string[] GetDirs(string path)
