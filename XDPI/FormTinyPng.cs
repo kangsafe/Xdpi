@@ -153,5 +153,10 @@ namespace XDPI
         {
             frm.Show();
         }
+
+        private void FormTinyPng_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

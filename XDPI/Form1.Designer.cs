@@ -65,6 +65,7 @@
             this.pPT2PDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msProject2PDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnDowloadimage = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvImg)).BeginInit();
             this.tools.SuspendLayout();
@@ -171,7 +172,8 @@
             this.btnZip,
             this.toolStripComboBox1,
             this.toolStripDropDownButton1,
-            this.toolStripDropDownButton2});
+            this.toolStripDropDownButton2,
+            this.btnDowloadimage});
             this.tools.Location = new System.Drawing.Point(0, 0);
             this.tools.Name = "tools";
             this.tools.Size = new System.Drawing.Size(1043, 25);
@@ -378,6 +380,16 @@
             // 
             this.toolTip1.ToolTipTitle = "双击退出图片查看";
             // 
+            // btnDowloadimage
+            // 
+            this.btnDowloadimage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnDowloadimage.Image = ((System.Drawing.Image)(resources.GetObject("btnDowloadimage.Image")));
+            this.btnDowloadimage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDowloadimage.Name = "btnDowloadimage";
+            this.btnDowloadimage.Size = new System.Drawing.Size(60, 22);
+            this.btnDowloadimage.Text = "下载图片";
+            this.btnDowloadimage.Click += new System.EventHandler(this.btnDowloadimage_Click);
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -392,6 +404,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "菜渣渣--Android资源批量生成器";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -439,6 +452,7 @@
         private System.Windows.Forms.ToolStripMenuItem visio2PDFToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pPT2PDFToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem msProject2PDFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton btnDowloadimage;
     }
 }
 

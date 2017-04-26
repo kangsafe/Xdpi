@@ -530,6 +530,18 @@ namespace XDPI
         {
 
         }
+
+        private void btnDowloadimage_Click(object sender, EventArgs e)
+        {
+            FormImage frm = new FormImage(this);
+            frm.Show();
+            Hide();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

@@ -141,37 +141,37 @@ namespace XDPI
         /// <returns>true=转换成功</returns>   
         public static bool VisioToPDF(string sourcePath, string targetPath)
         {
-            bool result;
-            Microsoft.Office.Interop.Visio.VisFixedFormatTypes targetType =
-            Microsoft.Office.Interop.Visio.VisFixedFormatTypes.visFixedFormatPDF;
-            object missing = Type.Missing;
-            Microsoft.Office.Interop.Visio.ApplicationClass application = null; Microsoft.Office.Interop.Visio.Document document = null;
-            try
-            {
-                application = new Microsoft.Office.Interop.Visio.ApplicationClass();
-                application.Visible = false;
-                document = application.Documents.Open(sourcePath);
-                document.Save();
-                document.ExportAsFixedFormat(targetType, targetPath, Microsoft.Office.Interop.Visio.VisDocExIntent.visDocExIntentScreen, Microsoft.Office.Interop.Visio.VisPrintOutRange.visPrintAll);
-                result = true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                result = false;
-            }
-            finally
-            {
-                if (application != null)
-                {
-                    application.Quit();
-                    application = null;
-                }
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
-            }
+            bool result=false;
+            //Microsoft.Office.Interop.Visio.VisFixedFormatTypes targetType =
+            //Microsoft.Office.Interop.Visio.VisFixedFormatTypes.visFixedFormatPDF;
+            //object missing = Type.Missing;
+            //Microsoft.Office.Interop.Visio.ApplicationClass application = null; Microsoft.Office.Interop.Visio.Document document = null;
+            //try
+            //{
+            //    application = new Microsoft.Office.Interop.Visio.ApplicationClass();
+            //    application.Visible = false;
+            //    document = application.Documents.Open(sourcePath);
+            //    document.Save();
+            //    document.ExportAsFixedFormat(targetType, targetPath, Microsoft.Office.Interop.Visio.VisDocExIntent.visDocExIntentScreen, Microsoft.Office.Interop.Visio.VisPrintOutRange.visPrintAll);
+            //    result = true;
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //    result = false;
+            //}
+            //finally
+            //{
+            //    if (application != null)
+            //    {
+            //        application.Quit();
+            //        application = null;
+            //    }
+            //    GC.Collect();
+            //    GC.WaitForPendingFinalizers();
+            //    GC.Collect();
+            //    GC.WaitForPendingFinalizers();
+            //}
             return result;
         }
         /// <summary>把Project文件转换成PDF格式文件</summary>
@@ -180,34 +180,34 @@ namespace XDPI
         /// <returns>true=转换成功</returns>   
         public static bool ProjectToPDF(string sourcePath, string targetPath)
         {
-            bool result;
+            bool result=false;
             object missing = Type.Missing;
-            Microsoft.Office.Interop.MSProject.ApplicationClass application = null;
-            try
-            {
-                application = new Microsoft.Office.Interop.MSProject.ApplicationClass();
-                application.Visible = false;
-                application.FileOpenEx(sourcePath);
-                application.DocumentExport(targetPath, Microsoft.Office.Interop.MSProject.PjDocExportType.pjPDF);
-                result = true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message); result = false;
-            }
-            finally
-            {
-                if (application != null)
-                {
-                    application.DocClose();
-                    application.Quit();
-                    application = null;
-                }
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
-            }
+            //Microsoft.Office.Interop.MSProject.ApplicationClass application = null;
+            //try
+            //{
+            //    application = new Microsoft.Office.Interop.MSProject.ApplicationClass();
+            //    application.Visible = false;
+            //    application.FileOpenEx(sourcePath);
+            //    application.DocumentExport(targetPath, Microsoft.Office.Interop.MSProject.PjDocExportType.pjPDF);
+            //    result = true;
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e.Message); result = false;
+            //}
+            //finally
+            //{
+            //    if (application != null)
+            //    {
+            //        application.DocClose();
+            //        application.Quit();
+            //        application = null;
+            //    }
+            //    GC.Collect();
+            //    GC.WaitForPendingFinalizers();
+            //    GC.Collect();
+            //    GC.WaitForPendingFinalizers();
+            //}
             return result;
         }
     }
